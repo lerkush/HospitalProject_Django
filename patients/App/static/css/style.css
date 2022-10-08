@@ -1,0 +1,268 @@
+/*-------------------------------------------
+# START CONFIGURATION
+-------------------------------------------*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/*-------------------------------------------
+# NAVBAR
+-------------------------------------------*/
+/* Button in navbar */
+#btn-nav {
+    width: 90px;
+    float: right;
+    margin-right: 25px;
+}
+
+/*-------------------------------------------
+# FOOTER
+-------------------------------------------*/
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+#footer,
+.push{
+    height: 50px;
+    font-size: 13px;
+}
+
+/*-------------------------------------------
+# BASE
+-------------------------------------------*/
+/* FontAwesome icon & Title */
+#nav-content {
+    text-align: center; 
+    color: #fff; 
+    margin-left: 25px;
+}
+
+/*-------------------------------------------
+# LOGIN
+-------------------------------------------*/
+/* Enter button */ 
+#btn-enter {
+    width: 110px;
+}
+/* Heart Pulse */
+#heart {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+}
+/* Label of the <inputs> */
+.icon-width {
+    width: 45px;
+}
+/*-------------------------------------------
+# BACKEND
+-------------------------------------------*/
+/* Label in (add.html & edit.html) */
+.side-label {
+    width: 75px;
+}
+/* Message if no data found in search box */
+#no-data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+}
+/* Pagination */
+#first, #last {
+    width: 60px;
+}
+
+/*-------------------------------------------
+# CUSTOM SWEETALERT (blue theme)
+-------------------------------------------*/
+/* All texts 100% centered */
+.swal-text {
+    text-align: center;
+}
+
+/* Icon settings */
+.swal-icon--success:before,
+.swal-icon--success:after,
+.swal-icon--success__hide-corners {
+    background: none !important;
+}
+.swal-icon--success {
+    /* Ring color */
+    border-color:#007bff;
+}
+.swal-icon--success__line {
+    /* Color animation */
+    background-color:#007bff;
+}
+/* Button settings */
+.swal-button {
+    padding: 7px 19px;
+    border-radius: 5px;
+    background-color:#007bff;
+    font-size: 12px;
+    border: 1px solid #007bff;
+}
+.swal-button:focus {
+    /* Remove the silver border of button */
+    box-shadow: none;
+}
+.swal-button:not([disabled]):hover {
+    background: transparent;
+    color: #111;
+    border: 1px solid #007bff;
+
+}
+
+/*-------------------------------------------
+# RESPONSIVE - RESOLUTION FOR TABLET (1024px)
+-------------------------------------------*/
+@media(max-width: 1024px) {
+    /* TABLE */
+    .table thead {
+        display: none;
+    }
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+    .table tr {
+        margin-bottom: 15px;
+        border: 1px solid #111;
+        border-radius: 5px;
+    }
+    .table td {
+        text-align: right;
+        padding-left: 35%;
+        position: relative;
+        border: 1px solid transparent;
+    }
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        font-weight: bold;
+        text-align: left;
+    }
+    .table > thead > tr:first-child {
+        display: none;
+        margin-top: 5px;
+    }
+    /* Border in TD */
+    #responsive-border {
+        border: 1px solid #a9a9a9;
+    }
+        /* Background color in TD */
+    #top-table {
+        background-color: #cfe2ff;
+        color: #111;
+        font-weight: bold;
+    }
+    /* Enable scrolling page on responsive */
+    body {
+        overflow-y:visible;
+    }
+        /* Buttons in navbar */
+    #btn-nav {
+        width: 75px;
+    }
+        /* Footer */
+    #footer {
+        font-size: 12px;
+    }
+    
+}
+
+/*-------------------------------------------
+# RESPONSIVE - RESOLUTION FOR TABLET (500px)
+-------------------------------------------*/
+@media(max-width: 500px) {
+    /* Hide this <span> in this mode  */
+    #all-rights {
+        display: none;
+    }
+    /* Footer */
+    #footer {
+        font-size: 10px;
+    }
+    /* Button in navbar */
+    #btn-nav {
+        width: 65px;
+        font-size: 12px;
+        margin-right: 15px;
+    }
+    /* Content in navbar (icon&title) */
+    #nav-content {
+        font-size: 15px;
+        margin-left: 15px;
+    }
+    /* Heart pulse */
+    #heart {
+        font-size: 12px;
+    }
+    /*Enter button in login.html*/
+    #btn-enter {
+        width: 100%;
+        border-radius: 30px;
+    }
+    /* Global text small */
+    .txt-sm {
+        font-size: 12px;
+    }
+    /* Label in username & password */
+    .icon-width {
+        font-size: 12px;
+    }
+    /* Time hidden in this mode */
+    #clock {
+        display: none;
+    }
+    /* Action buttons (delete & edit */
+    .btn-action {
+        width: 35px;
+        font-size: 12px;
+    }
+    /* Small pagination */
+    #first, #last {
+        font-size: 12px;
+        width: 50px;
+    }
+    /* Inputs in add.html & edit.html */
+    #name, #phone, #email, #age, #gender {
+        font-size: 12px;
+    }
+
+    .modal-title {
+        font-size: 14px;
+    }
+    #no-data {
+        font-size: 16px;
+    }
+    /* SweetAlert */
+    /*.swal-title {
+        font-size: 18px;
+    }
+    .swal-text {
+        font-size: 14px;
+    }
+    .swal-button {
+        padding: 5px 15px;
+        font-size: 10px;
+    }
+    .swal-icon--success, .swal-icon--success__line {
+        padding: 1px 1px;
+    } */
+
+}

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap 5 CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <!-- Fontawesome CDN-->
+    <!--  Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
+        <!--   Favicon   -->
+    <link href= {% static "img/favicon.ico" %} rel="shortcut icon" >
+    <!--   Logo   -->
+    <link href= {% static "img/logo.ico" %} rel="shortcut icon" >
+    <!--   Static CSS   -->
+    <link href= {% static "css/style.css" %} rel="stylesheet" >
+
+    <title>{% block title %} Lerkush Hospital {% endblock title %}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+                <div class="col-sm">
+                    <a class="navbar-brand flex-grow-1" id="nav-content">
+                        {% block nav-content %}
+                        <i class="fas fa-briefcase-medical"></i>&nbsp;&nbsp; Lerkush Hospital
+                        {% endblock nav-content %}
+                    </a>
+                </div>
+                <!-- Time ===========ROOT=============-->
+                {% block time %}
+                {% endblock time %}
+
+                <div class="col-sm">
+                    {% block btn-nav %}
+                    <a href="{% url 'backend' %}" class="btn btn-outline-info btn-sm border-light" id="btn-nav">Login</a>
+                    {% endblock btn-nav %}
+                </div>
+            </nav>
+        </header>
+
+        
+    <!-- ====== Block Content (ROOT) ====== -->
+        {% block content %}
+        {% endblock content %}
+  
+    </div> <!-- END // wrapper-->
+
+
+    <!--  Footer        -->
+    <footer class="bg-dark text-center text-lg-start text-light" id="footer" >
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Copyright &copy; {% now "Y" %} <span id="all-rights">All rights reserved</span> | Made with
+            <i class="text-danger fas fa-heartbea blink_me" style="font-size: 15px"></i> by
+            <a href="#" target="_blank" {% block footer %} style="color: #0dcaf0; text-decoration: none;"{% endblock footer %}>lerkush</a>
+        </div>
+    </footer>
+
+    
+        <!-- Modal {Logout Confirmation } -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center txt-sm">
+                        <span class="text-danger"><i class="fas fa-sign-out-alt fa-3x mt-4"></i></span>
+                        <div class="mt-4 mb-4 text-danger">Are you sure you want to exit the system ?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm txt-sm" data-bs-dismiss="modal">Cancel</button>
+                        <a href="{% url 'logout'%}" type="button" class="btn btn-outline-danger btn-sm txt-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Bootstrap 5 JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <!-- Jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    <!-- Inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8-beta.1/jquery.inputmask.min.js" integrity="sha512-0o4sWzxULgmULBKVb/9AuSGWVebaP2gmz3XPCI8OvTa9z/A6mzCBUjWj7birew55lAimOwaqd0eIGdeueiiLDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+    <!-- SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <!-- Static JS -->
+    <script src={% static "js/script.js" %}></script>
+
+    <script>
+        (function blink(){
+            $('.blink_me').fadeOut(1000).fadeIn(1000, blink);
+
+        })();
+    </script>
+    
+</body>
+</html>

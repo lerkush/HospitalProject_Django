@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+<!--Title on the browser tab-->
+{% block title %} Login {% endblock title %}
+
+<!-- Navbar Content (icon + title) -->
+{% block nav-content %}
+<i class="fas fa-stethoscope"></i>&nbsp;&nbsp; Login
+{% endblock nav-content %}
+
+<!-- Button in navbar -->
+{% block btn-nav %}
+<a href="{% url 'frontend' %}" class="btn btn-outline-primary btn-sm border-light text-light" id="btn-nav">Go Back</a>
+{% endblock btn-nav %}
+
+<!-- Footer (color )-->
+{% block footer %} style="color: #a9a9a9; text-decoration: none;"{% endblock footer %}
+
+<!-- Page Content -->
+{% block content %}
+<div class="container mt-5"> <!-- Container-->
+    <div class="card p-3 border-dark">
+        <span class="btn btn-outline-dark mt-3 txt-sm"><i class="fas fa-lock"></i>&nbsp;&nbsp; RESTRICTED ACCESS</span>
+        <form method="POST" autocomplete="off" novalidate>
+            {% csrf_token %}
+            <div class="input-group mb-3 mt-5">
+                <span class="btn input-group-text border-secondary bg-light icon-width" ><i class="fas fa-user-alt"></i></span>
+                <input type="text" class="form-control txt-sm" name="username" placeholder="Username">
+            </div>
+            <div class="input-group mb-3">
+                <span class="btn input-group-text border-secondary bg-light icon-width"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control txt-sm" name="password" placeholder="Password">
+            </div>
+            <input class="btn btn-primary btn-sm mt-4 mb-3" type="submit" value="Enter" id="btn-enter">
+        </form>
+    </div>
+
+    <!-- Message from backend -->
+    {% if form.errors %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        swal("Denied ! ", "Enter your data correctly.", "error")
+    </script>
+    {% endif %}
+
+    <!-- Heart Pulse -->
+    <center id="heart">
+        <i class= "text-primary fas fa-heartbeat fa-10x blink_me"></i>
+    </center>
+
+</div> <!-- END // container-->
+
+{% endblock content %}
